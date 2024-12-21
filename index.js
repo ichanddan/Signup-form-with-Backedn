@@ -22,20 +22,33 @@ app.use(
 db.sequelize.sync();
 // Route to handle posting data
 app.post("/post-data", async (req, res) => {
+  console.log(req.body)
+  console.log(req.files)
   try {
+    const userPhoto = req.files.userPhoto;
     const { password, email, fullName } = req.body;
-
     if (!email) {
       return res.status(400).send("email is required");
     } else if (!password) {
       return res.status(400).send("Password is required");
     } else if (!fullName) {
       return res.status(400).send("fullname is required");
+    } else if (!userPhoto) {
+      return res.status(400).send("file is required");
     }
-    const user = await db.User.create({ email, password, fullName });
+    const { secure_url } = await cloudinary.uploader.upload(userPhoto.tempFilePath, {
+      resource_type: "image",
+      public_id: "image" + Date.now(),
+    });
+    const user = await db.User.create({
+      email,
+      password,
+      fullName,
+      url: secure_url,
+    });
     res.status(201).send({ message: "Data posted successfully", user });
   } catch (error) {
-    console.error("Error posting data:", error.message);
+    console.error("Error posting data:", error);
     res.status(500).send("An error occurred while posting data");
   }
 });

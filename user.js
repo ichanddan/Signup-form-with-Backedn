@@ -1,5 +1,7 @@
 module.exports = (sequelize, Sequelize) => {
-    return sequelize.define("User", {
+  return sequelize.define(
+    "User",
+    {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -18,9 +20,14 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.STRING,
         allowNull: false,
       },
-    },{
-        tableName: "users",
-        timestamps: false,
-    });
-  };
-  
+      url: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+    },
+    {
+      tableName: "users",
+      timestamps: false,
+    }
+  );
+};
