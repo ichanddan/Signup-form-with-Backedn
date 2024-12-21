@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup Page</title>
+  <script src="index.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+    }
+    .signup-container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+    .signup-container h1 {
+      font-size: 1.8rem;
+      color: #333;
+      margin-bottom: 1.5rem;
+    }
+    .signup-container form {
+      display: flex;
+      flex-direction: column;
+    }
+    .signup-container input {
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    .signup-container input:focus {
+      border-color: #6a11cb;
+      outline: none;
+      box-shadow: 0 0 5px rgba(106, 17, 203, 0.3);
+    }
+    .signup-container button {
+      background: #6a11cb;
+      color: #fff;
+      border: none;
+      padding: 0.8rem;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .signup-container button:hover {
+      background: #2575fc;
+    }
+    .signup-container p {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    .signup-container a {
+      color: #2575fc;
+      text-decoration: none;
+    }
+    .signup-container a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-container">
+    <h1>Create an Account</h1>
+    <form action="/post-data" method="post">
+      <input type="text" name="fullname" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit">Sign Up</button>
+    </form>
+    <p>Already have an account? <a href="/login">Log In</a></p>
+  </div>
+</body>
+</html>
