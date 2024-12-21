@@ -46,7 +46,7 @@ app.post("/post-data", async (req, res) => {
       fullName,
       url: secure_url,
     });
-    res.status(201).send({ message: "Data posted successfully", user });
+    res.status(201).send({ message: "Signup successfully", user });
   } catch (error) {
     console.error("Error posting data:", error);
     res.status(500).send("An error occurred while posting data");
