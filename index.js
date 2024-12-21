@@ -22,8 +22,8 @@ app.use(
 db.sequelize.sync();
 // Route to handle posting data
 app.post("/post-data", async (req, res) => {
-  console.log(req.body)
-  console.log(req.files)
+  // console.log(req.body)
+  // console.log(req.files)
   try {
     const userPhoto = req.files.userPhoto;
     const { password, email, fullName } = req.body;

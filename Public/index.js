@@ -65,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return response.json();
       })
       .then((data) => {
+        console.log(data?.message)
         window.alert(data?.message);
         form.reset();
         photoPreview.style.display = "none"; // Hide the preview
