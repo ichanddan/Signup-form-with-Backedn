@@ -77,7 +77,8 @@
   <div class="signup-container">
     <h1>Create an Account</h1>
     <form action="/post-data" method="post">
-      <input type="file" name="userPhoto" required>
+      <input type="file" name="userPhoto" id="userPhoto" required>
+      <img id="photoPreview" src="" alt="Photo Preview" style="display: none; max-width: 100%; margin-top: 10px; border: 1px solid #ccc; border-radius: 50% 50%;" />
       <input type="text" name="fullname" placeholder="Full Name" required>
       <input type="email" name="email" placeholder="Email Address" required>
       <input type="password" name="password" placeholder="Password" required>
